@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Disease Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            text-align: center;
+            color: #333;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+        .upload-area {
+            margin: 20px 0;
+        }
+        input[type="file"] {
+            margin: 10px 0;
+        }
+        .btn {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #ff3b2f;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff3b2f;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>Eye Disease Tracker</div>
+        <ul class="nav-links">
+            <li><a href="base.html">Home</a></li>
+            <li><a href="Loginhealth.html">Sign up / Login</a></li>
+            <li class="dropdown">
+            <a href="#">Tracker ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="eyehealth.html">Eye</a></li>
+              <li><a href="hearthealth.html">Heart</a></li>
+              <li><a href="skinhealth.html">Skin</a></li>
+        </ul>
+    </li>
+
+           <li><a href="aboutushealth.html">About Us</a></li>
+            <li><a href="contactushealth.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Track Eye Diseases</h2>
+            <p>Upload an image of your eye to detect potential issues such as cataracts, glaucoma, or vision impairment.</p>
+            <div class="upload-area">
+                <input type="file" id="eyeImage" accept="image/*">
+                <button class="btn" onclick="analyzeEye()">Submit</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function analyzeEye() {
+            const fileInput = document.getElementById('eyeImage');
+            const resultDiv = document.getElementById('result');
+
+            if (fileInput.files.length === 0) {
+                resultDiv.innerHTML = "Please upload an eye image for analysis.";
+                return;
+            }
+
+            // Simulate AI processing
+            resultDiv.innerHTML = "Analyzing image... (This feature will be connected to AI soon)";
+            
+            setTimeout(() => {
+                resultDiv.innerHTML = "Analysis Complete: No serious issues detected. Please consult a doctor for detailed examination.";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

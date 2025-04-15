@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Health Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            color: #333;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #ff3b2f;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff3b2f;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>Heart Health Tracker</div>
+        <ul class="nav-links">
+            <li><a href="base.html">Home</a></li>
+            <li><a href="Loginhealth.html">Sign up / Login</a></li>
+            <li class="dropdown">
+            <a href="#">Tracker ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="eyehealth.html">Eye</a></li>
+              <li><a href="hearthealth.html">Heart</a></li>
+              <li><a href="skinhealth.html">Skin</a></li>
+        </ul>
+    </li>
+
+            <li><a href="aboutushealth.html">About Us</a></li>
+            <li><a href="contactushealth.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Track Your Heart Health</h2>
+            <p>Enter your heart health details to get an assessment and lifestyle recommendations.</p>
+            <form id="heartForm">
+                <label for="bp">Blood Pressure (systolic/diastolic mmHg):</label>
+                <input type="text" id="bp" placeholder="e.g., 120/80" required>
+
+                <label for="heartRate">Heart Rate (bpm):</label>
+                <input type="number" id="heartRate" placeholder="e.g., 75" required>
+
+                <label for="ecg">ECG Reading (Upload File):</label>
+                <input type="file" id="ecg" accept="image/*, .pdf">
+
+                <button type="button" class="btn" onclick="analyzeHeart()">Submit</button>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function analyzeHeart() {
+            const bpInput = document.getElementById('bp').value;
+            const heartRateInput = document.getElementById('heartRate').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!bpInput || !heartRateInput) {
+                resultDiv.innerHTML = "Please enter all required fields.";
+                return;
+            }
+
+            const [systolic, diastolic] = bpInput.split('/').map(Number);
+            const heartRate = Number(heartRateInput);
+
+            let assessment = "Heart Status: Normal";
+            let advice = "Maintain a balanced diet, exercise regularly, and monitor your health.";
+
+            if (systolic > 140 || diastolic > 90) {
+                assessment = "High Blood Pressure";
+                advice = "Reduce salt intake, exercise, and consult a doctor.";
+            } else if (systolic < 90 || diastolic < 60) {
+                assessment = "Low Blood Pressure";
+                advice = "Stay hydrated, eat small meals, and avoid standing up too quickly.";
+            }
+
+            if (heartRate > 100) {
+                assessment += " & Rapid Heart Rate";
+                advice += " Avoid caffeine, manage stress, and consult a cardiologist.";
+            } else if (heartRate < 60) {
+                assessment += " & Slow Heart Rate";
+                advice += " Include moderate exercise and monitor any symptoms.";
+            }
+
+            resultDiv.innerHTML = <strong>${assessment}</strong><br>${advice};
+        }
+    </script>
+</body>
+</html>

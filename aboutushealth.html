@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Health Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #89f7fe, #66a6ff);
+            text-align: center;
+            color: #333;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+        .section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .btn {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #ff3b2f;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>About Us - Health Tracker</div>
+        <ul class="nav-links">
+            <li><a href="base.html">Home</a></li>
+            <li><a href="aboutushealth.html">About Us</a></li>
+            <li class="dropdown">
+            <a href="#">Tracker ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="eyehealth.html">Eye</a></li>
+              <li><a href="hearthealth.html">Heart</a></li>
+              <li><a href="skinhealth.html">Skin</a></li>
+        </ul>
+    </li>
+              <li><a href="aboutushealth.html">About Us</a></li>
+              <li><a href="contactushealth.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Who We Are</h2>
+            <p>We are dedicated to providing advanced health tracking solutions that help users monitor their well-being effortlessly.</p>
+        </div>
+        <div class="section">
+            <h2>Our Services</h2>
+            <p>We offer a range of health monitoring services to keep you informed about your health.</p>
+            <ul style="text-align: left; max-width: 600px; margin: auto;">
+                <li><strong>Heart Health Monitoring:</strong> Track your heart rate and detect potential heart issues.</li>
+                <li><strong>Eye Disease Tracking:</strong> Detect cataracts, glaucoma, and monitor vision power.</li>
+                <li><strong>Skin Disease Detection:</strong> Upload an image of your skin to analyze potential conditions.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Why Choose Us?</h2>
+            <p>We use cutting-edge technology to ensure accurate tracking and early detection of health concerns, helping you stay healthy and informed.</p>
+            <a href="index.html" class="btn">Explore More</a>
+        </div>
+    </div>
+</body>
+</html>

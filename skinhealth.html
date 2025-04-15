@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            text-align: center;
+            color: #333;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            text-align: left;
+            transition: transform 0.3s ease-in-out;
+        }
+        .section:hover {
+            transform: scale(1.05);
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #ff3b2f;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff3b2f;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>Skin Disease Tracker</div>
+        <ul class="nav-links">
+            <li><a href="base.html">Home</a></li>
+            <li><a href="Loginhealth.html">Sign up / Login</a></li>
+            <li class="dropdown">
+            <a href="#">Tracker ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="eyehealth.html">Eye</a></li>
+              <li><a href="hearthealth.html">Heart</a></li>
+              <li><a href="skinhealth.html">Skin</a></li>
+        </ul>
+    </li>
+
+            <li><a href="aboutushealth.html">About Us</a></li>
+            <li><a href="contactushealth.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <div class="section">
+            <h2>Track Your Skin Health</h2>
+            <p>Upload an image of your skin or describe your symptoms to detect potential skin conditions.</p>
+            
+            <label for="skinImage">Upload Skin Image:</label>
+            <input type="file" id="skinImage" accept="image/*">
+
+            <label for="symptoms">Or Describe Symptoms:</label>
+            <textarea id="symptoms" rows="4" placeholder="Describe the skin condition (e.g., red patches, itching, dryness)"></textarea>
+
+            <button class="btn" onclick="analyzeSkin()">Submit</button>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function analyzeSkin() {
+            const fileInput = document.getElementById('skinImage');
+            const symptomsInput = document.getElementById('symptoms').value.trim();
+            const resultDiv = document.getElementById('result');
+
+            if (fileInput.files.length === 0 && symptomsInput === "") {
+                resultDiv.innerHTML = "Please upload an image or enter symptoms for analysis.";
+                return;
+            }
+
+            resultDiv.innerHTML = "Analyzing... (This feature will be connected to AI soon)";
+            
+            setTimeout(() => {
+                if (symptomsInput.toLowerCase().includes("red patches") || symptomsInput.toLowerCase().includes("itching")) {
+                    resultDiv.innerHTML = "Possible Condition: Eczema. Recommendation: Keep skin moisturized and consult a dermatologist.";
+                } else if (symptomsInput.toLowerCase().includes("scaly skin") || symptomsInput.toLowerCase().includes("flaky patches")) {
+                    resultDiv.innerHTML = "Possible Condition: Psoriasis. Recommendation: Use medicated creams and consult a doctor.";
+                } else {
+                    resultDiv.innerHTML = "No clear condition detected. Please consult a dermatologist for proper diagnosis.";
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

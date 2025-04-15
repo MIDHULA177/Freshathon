@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup - Health Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #56ccf2, #2f80ed);
+            text-align: center;
+            color: #333;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #2f80ed;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .btn:hover {
+            background: #1c60c6;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: red;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>Welcome to Your Health Tracker</div>
+        <ul class="nav-links">
+            <li><a href="base.html">Home</a></li>
+            
+            <li class="dropdown">
+            <a href="#">Tracker ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="eyehealth.html">Eye</a></li>
+              <li><a href="hearthealth.html">Heart</a></li>
+              <li><a href="skinhealth.html">Skin</a></li>
+        </ul>
+    </li>
+
+            <li><a href="aboutushealth.html">About Us</a></li>
+            <li><a href="contactushealth.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <h2>Login / Signup</h2>
+        <input type="text" id="username" placeholder="Enter Username" required>
+        <input type="email" id="email" placeholder="Enter Email ID" required>
+        <input type="text" id="phone" placeholder="Enter Phone Number" required>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <input type="password" id="repassword" placeholder="Re-enter Password" required>
+        <button class="btn" onclick="registerUser()">Submit</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let usersDatabase = {};
+
+        function registerUser() {
+            let username = document.getElementById("username").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let repassword = document.getElementById("repassword").value.trim();
+            let messageDiv = document.getElementById("message");
+
+            if (!username || !email || !phone || !password || !repassword) {
+                messageDiv.innerHTML = "All fields are required.";
+                return;
+            }
+            if (password !== repassword) {
+                messageDiv.innerHTML = "Passwords do not match.";
+                return;
+            }
+            if (usersDatabase[email] || usersDatabase[phone]) {
+                messageDiv.innerHTML = "Account already exists!";
+                return;
+            }
+
+            usersDatabase[email] = { username, phone, password };
+            usersDatabase[phone] = { username, email, password };
+
+            messageDiv.innerHTML = "Account created successfully!";
+            setTimeout(() => {
+                alert("Signup Successful! Please login.");
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
