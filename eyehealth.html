@@ -4,90 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eye Disease Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            text-align: center;
-            color: #333;
-        }
-        .header {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-        }
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links li {
-            display: inline;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            padding: 20px;
-        }
-        .section {
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-        }
-        .upload-area {
-            margin: 20px 0;
-        }
-        input[type="file"] {
-            margin: 10px 0;
-        }
-        .btn {
-            background: #ff6f61;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
-            cursor: pointer;
-            border: none;
-        }
-        .btn:hover {
-            background: #ff3b2f;
-        }
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #ff3b2f;
-        }
-        
-        .dropdown {
-            position: relative;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    <style>
+       body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #d4f1e3 0%, #a1d8b4 100%);  /* Soft light green gradient */
+    text-align: center;
+    color: #333;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.8);
+    color: #4CAF50;  /* A lighter, fresh green */
+    padding: 15px 50px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #4CAF50;  /* Light green for navigation */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    color: #388E3C;  /* A slightly darker green for hover effect */
+}
+
+.container {
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 100, 150, 0.1);
+    max-width: 800px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.btn {
+    background: #4CAF50;  /* Light green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #388E3C;  /* Darker green for hover effect */
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #388E3C;  /* Darker green for message text */
+}
+
+.upload-area {
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e0f7fa;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     z-index: 1;
     border-radius: 5px;
     padding: 0;
@@ -99,7 +128,7 @@
 }
 
 .dropdown-content a {
-    color: white;
+    color: #4CAF50;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -107,12 +136,14 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #444;
+    background-color: #c1e1d4;  /* Soft green for hover effect */
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
 
     </style>
 </head>
@@ -140,6 +171,7 @@
         <div class="section">
             <h2>Track Eye Diseases</h2>
             <p>Upload an image of your eye to detect potential issues such as cataracts, glaucoma, or vision impairment.</p>
+            <img src="https://st2.depositphotos.com/1185628/8482/v/450/depositphotos_84822544-stock-illustration-eye-vision-icon.jpg" alt="Health pic" style="width:30%">
             <div class="upload-area">
                 <input type="file" id="eyeImage" accept="image/*">
                 <button class="btn" onclick="analyzeEye()">Submit</button>
