@@ -4,80 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Health Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #89f7fe, #66a6ff);
-            text-align: center;
-            color: #333;
-        }
-        .header {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-        }
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links li {
-            display: inline;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            padding: 20px;
-        }
-        .section {
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-        }
-        .section img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .btn {
-            background: #ff6f61;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .btn:hover {
-            background: #ff3b2f;
-        }
-        
-        .dropdown {
-            position: relative;
-        }
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #fdfcfb, #e2d1c3); /* soft cream to warm beige */
+    text-align: center;
+    color: #333;
+}
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
+.header {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px 50px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* subtle dark shadow */
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+.section {
+    margin: 20px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.section:hover {
+    transform: scale(1.02);
+}
+
+.section img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background: #6c63ff; /* soft purple */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #574b90;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 5px;
@@ -98,7 +122,7 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #444;
+    background-color: #555;
 }
 
 .dropdown:hover .dropdown-content {
@@ -128,22 +152,27 @@
 
     <div class="container">
         <div class="section">
-            <h2>Who We Are</h2>
+            <center><h2>Who We Are</h2></center>
             <p>We are dedicated to providing advanced health tracking solutions that help users monitor their well-being effortlessly.</p>
+            <center><img src="https://i.pinimg.com/736x/d3/a8/76/d3a876b9a66eea57cd33d9a9f6349955.jpg" aly="Health image" style="width:35%;opacity: 0.5;"></center>
         </div>
         <div class="section">
-            <h2>Our Services</h2>
+            <center><h2>Our Services</h2></center>
             <p>We offer a range of health monitoring services to keep you informed about your health.</p>
             <ul style="text-align: left; max-width: 600px; margin: auto;">
                 <li><strong>Heart Health Monitoring:</strong> Track your heart rate and detect potential heart issues.</li>
                 <li><strong>Eye Disease Tracking:</strong> Detect cataracts, glaucoma, and monitor vision power.</li>
                 <li><strong>Skin Disease Detection:</strong> Upload an image of your skin to analyze potential conditions.</li>
             </ul>
+            <center><img src="https://thumbs.dreamstime.com/b/minimalist-design-features-three-icons-arranged-row-left-orange-heart-black-heartbeat-line-runs-370103069.jpg" aly="Health image" style="width:55%;"></center>
+
+                
         </div>
         <div class="section">
-            <h2>Why Choose Us?</h2>
+            <center><h2>Why Choose Us?</h2></center>
             <p>We use cutting-edge technology to ensure accurate tracking and early detection of health concerns, helping you stay healthy and informed.</p>
-            <a href="index.html" class="btn">Explore More</a>
+            <center><img src="https://www.sermo.com/wp-content/uploads/2025/02/seo-blog-header-advances-in-medical-technology-690x389.png" aly="Health image" style="width:60%;"></center>
+            <center><a href="base.html" class="btn">Explore More</a></center>
         </div>
     </div>
 </body>
